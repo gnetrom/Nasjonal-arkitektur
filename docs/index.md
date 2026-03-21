@@ -11,3 +11,40 @@ Hovedmålet med nasjonal arkitektur er å etablere et **felles digitalt økosyst
 * **Tillit og sikkerhet:** Informasjonssikkerhet og innebygd personvern er fundamentale byggeklosser for å sikre befolkningens tillit til offentlige digitale tjenester.
 
 Kort fortalt sikrer nasjonal arkitektur at vi bygger et moderne, bærekraftig og effektivt digitalt Norge som trekker i samme retning.
+
+## Konseptuell skisse
+
+Diagrammet under illustrerer forholdet mellom aktørene, kapabilitetene i Nasjonal arkitektur, og hvordan dette understøtter strategiske mål for økt samhandlingsevne i et felles økosystem.
+
+```mermaid
+graph TD
+    %% Sektorer og aktører
+    Sektorer["Ulike sektorer<br>(Stat, Kommune, Helse, Næringsliv)"]
+
+    %% Nasjonal arkitektur rammeverk
+    subgraph NA [Nasjonal arkitektur]
+        subgraph Konkrete_felleslosninger [Eksempler på fellesløsninger]
+            Altinn
+            Maskinporten
+            IDporten["ID-porten"]
+        end
+        
+        Ressurser["Ressurser<br>(Fellesløsninger, data, standarder)"]
+        Kapabiliteter["Kapabiliteter<br>(Evnen til å samhandle og dele)"]
+        
+        Konkrete_felleslosninger -->|Utgjør| Ressurser
+        Ressurser -.->|Realiserer| Kapabiliteter
+    end
+
+    %% Målbilde
+    subgraph Økosystem [Felles digitalt økosystem]
+        Strategi["Strategiske mål"]
+        Samhandling["Økt samhandlingsevne"]
+        
+        Strategi -.->|Fører til| Samhandling
+    end
+
+    %% Relasjoner
+    Sektorer <-->|Benytter og bidrar til| Kapabiliteter
+    Kapabiliteter ===>|Understøtter| Strategi
+```
