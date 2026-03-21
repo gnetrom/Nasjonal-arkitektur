@@ -18,12 +18,20 @@
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: false });
       
-      const mermaidBlocks = document.querySelectorAll('code.language-mermaid');
+      // GitHub Pages (Jekyll/Kramdown) setter ofte 'language-mermaid'-klassen på en ytre div, 
+      // mens vanlig Markdown setter det på <code>-taggen. Vi fanger opp begge deler.
+      const mermaidBlocks = document.querySelectorAll('.language-mermaid, code.language-mermaid');
       mermaidBlocks.forEach((block) => {
         const div = document.createElement('div');
         div.className = 'mermaid';
         div.textContent = block.textContent;
-        block.parentElement.replaceWith(div);
+        
+        // Bytt ut hele kodeblokken med det tegnede diagrammet
+        if (block.tagName.toLowerCase() === 'code' && block.parentElement.tagName.toLowerCase() === 'pre') {
+            block.parentElement.replaceWith(div);
+        } else {
+            block.replaceWith(div);
+        }
       });
       
       mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
