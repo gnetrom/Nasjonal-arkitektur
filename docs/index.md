@@ -24,9 +24,24 @@ graph TD
     %% Nasjonal arkitektur rammeverk
     subgraph NA [Nasjonal arkitektur]
         subgraph Konkrete_felleslosninger [Eksempler på fellesløsninger]
-            Altinn
-            Maskinporten
-            IDporten["ID-porten"]
+            subgraph Digdir_losninger [Digdir]
+                IDporten["ID-porten"]
+                Maskinporten
+                eSignering
+                FDK["Felles datakatalog"]
+                Altinn["Altinn (Tjenesteutvikling og portal)"]
+                DPV["Digital postkasse"]
+                eFormidling
+                eInnsyn
+                KRR["Kontakt- og reservasjonsregisteret"]
+                NorgeNo["Norge.no"]
+            end
+            subgraph KS_losninger [KS Digital]
+                SvarUt["Fiks SvarUt"]
+                MinKommune["KS Min kommune"]
+                FiksRegister["Fiks register"]
+                Digisos["Fiks digisos"]
+            end
         end
         
         Ressurser["Ressurser<br>(Fellesløsninger, data, standarder)"]
