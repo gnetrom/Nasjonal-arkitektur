@@ -6,10 +6,20 @@
     <title>{{ page.title | default: "Nasjonal arkitektur" }}</title>
     <style>
         body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 2rem; }
+        nav { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ccc; }
+        nav a { margin-right: 15px; text-decoration: none; color: #0056b3; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     
+    <!-- Felles navigasjon for alle sider -->
+    <nav>
+        <a href="{{ '/index.html' | relative_url }}">Hjem</a>
+        <a href="{{ '/informasjonsforvaltning.html' | relative_url }}">Informasjonsforvaltning</a>
+        <a href="{{ '/0000-mal-for-adr.html' | relative_url }}">ADR-mal</a>
+    </nav>
+
     <!-- Her vil innholdet fra markdown-filene dine bli satt inn -->
     {{ content }}
 
