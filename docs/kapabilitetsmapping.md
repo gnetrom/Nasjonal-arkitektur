@@ -3,7 +3,7 @@ layout: default
 title: Kapabilitetsmapping
 ---
 
-# Nasjonal Arkitektur: Kapabilitetsmapping
+# Nasjonal Arkitektur: Kapabilitetsmapping utkast
 
 **Enkel oversikt med eksempler**  
 *Mapping mellom nasjonale kapabiliteter og fellesressurser*
