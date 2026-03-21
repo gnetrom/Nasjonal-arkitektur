@@ -1,3 +1,8 @@
+---
+layout: default
+title: Hva er Nasjonal arkitektur?
+---
+
 # Hva er Nasjonal arkitektur?
 
 I en norsk kontekst er nasjonal arkitektur et overordnet rammeverk for hvordan offentlig sektor – i samspill med privat sektor – bygger og setter sammen digitale løsninger. Rammeverket forvaltes av Digitaliseringsdirektoratet (Digdir).

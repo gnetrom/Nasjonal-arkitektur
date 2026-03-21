@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: "Nasjonal arkitektur" }}</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 2rem; }
+    </style>
+</head>
+<body>
+    
+    <!-- Her vil innholdet fra markdown-filene dine bli satt inn -->
+    {{ content }}
+
+    <!-- Felles skript for å tegne Mermaid-diagrammer på alle sider -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: false });
+      
+      const mermaidBlocks = document.querySelectorAll('code.language-mermaid');
+      mermaidBlocks.forEach((block) => {
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = block.textContent;
+        block.parentElement.replaceWith(div);
+      });
+      
+      mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+    </script>
+</body>
+</html>
