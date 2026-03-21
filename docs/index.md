@@ -29,6 +29,7 @@ Digdir har også utarbeidet en konkret modell for felles økosystem. Denne model
 * [Kapabilitetsmapping](kapabilitetsmapping.md) - Enkel oversikt og mapping mellom nasjonale kapabiliteter og fellesressurser.
 * [Arkitekturstyring](arkitekturstyring.md) - Retningslinjer for styring av samhandlingstjenester.
 * [HTML Test](htmltest.html) - En testside for HTML-funksjonalitet.
+* [Oppsummering](oppsummering.html) - En html fil som oppsummerer alt frem til lørdag kl 22...
 
 
 ## Konseptuell skisse
