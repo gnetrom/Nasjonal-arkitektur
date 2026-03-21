@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasjonal Arkitektur - Oppsummering</title>
+    <style>
+        :root {
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-900: #0f172a;
+            --blue-600: #2563eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--slate-50);
+            color: var(--slate-900);
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background-color: #ffffff;
+            border-right: 1px solid var(--slate-200);
+            padding: 20px;
+            overflow-y: auto;
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            color: var(--slate-900);
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--slate-600);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar li a:hover {
+            background-color: var(--slate-100);
+            color: var(--slate-900);
+        }
+        
+        .sidebar li a.active {
+            background-color: var(--blue-600);
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            width: calc(100% - 280px);
+            overflow-y: auto;
+        }
+
+        section {
+            margin-bottom: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--slate-200);
+        }
+        
+        section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--slate-900);
+            margin-bottom: 0.8em;
+						font-weight: 600;
+        }
+
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.4rem; }
+
+        p, ul, ol {
+            line-height: 1.7;
+            color: var(--slate-700);
+            margin-bottom: 1em;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--slate-800);
+        }
+
+        code {
+            font-family: "SF Mono", "Fira Code", "Consolas", menlo, monospace;
+            background-color: var(--slate-100);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background-color: var(--slate-100);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            padding: 0;
+            background: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+
+        th, td {
+            border: 1px solid var(--slate-300);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--slate-100);
+            font-weight: 600;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h2>Meny</h2>
+        <ul>
+            <li><a href="#hjem">Hva er Nasjonal arkitektur?</a></li>
+            <li><a href="#arkitekturstyring">Arkitekturstyring</a></li>
+            <li><a href="#informasjonsforvaltning">Informasjonsforvaltning</a></li>
+            <li><a href="#kapabilitetsmapping">Kapabilitetsmapping</a></li>
+            <li><a href="#adr-mal">ADR Mal</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="hjem">
+            <h1>Hva er Nasjonal arkitektur?</h1>
+            <p>I en norsk kontekst er nasjonal arkitektur et overordnet rammeverk for hvordan offentlig sektor - i samspill med privat sektor - bygger og setter sammen digitale løsninger. Rammeverket forvaltes av Digitaliseringsdirektoratet (Digdir).</p>
+            <p>Hovedmålet med nasjonal arkitektur er å etablere et <strong>felles digitalt økosystem</strong>. Dette fungerer som felles "kjøreregler" og "byggeklosser", og legger til rette for:</p>
+            <ul>
+                <li><strong>Sammenhengende tjenester:</strong> Innbyggere og næringsliv skal oppleve offentlige tjenester som sømløse og brukervennlige, på tvers av kommuner, direktorater og etater. Brukerens behov settes i sentrum, ikke hvordan forvaltningen er organisert.</li>
+                <li><strong>Deling av data ("Kun én gang"):</strong> Systemer skal utveksle informasjon på en sikker måte slik at brukerne slipper å oppgi samme opplysninger til det offentlige mer enn én gang.</li>
+                <li><strong>Gjenbruk av fellesløsninger:</strong> Virksomheter skal gjenbruke nasjonale felleskomponenter (som ID-porten, Altinn og Maskinporten) fremfor å utvikle egne, overlappende løsninger. Dette sparer samfunnet for store summer.</li>
+                <li><strong>Samhandling (Interoperabilitet):</strong> For at systemer skal kunne "snakke sammen", definerer nasjonal arkitektur standarder, referansearkitekturer og prinsipper for teknisk, semantisk, organisatorisk og juridisk samhandling.</li>
+                <li><strong>Tillit og sikkerhet:</strong> Informasjonssikkerhet og innebygd personvern er fundamentale byggeklosser for å sikre befolkningens tillit til offentlige digitale tjenester.</li>
+            </ul>
+            <p>Kort fortalt sikrer nasjonal arkitektur at vi bygger et moderne, bærekraftig og effektivt digitalt Norge som trekker i samme retning.</p>
+            
+            <h2>Hva er felles økosystem?</h2>
+            <p>Felles økosystem for nasjonal digital samhandling og tjenesteutvikling er en samling verktøy og løsninger som kan brukes på tvers for å utvikle digitale tjenester. Hovedmålet med økosystemet er at offentlige tjenester skal oppleves som sammenhengende og helhetlige for både innbyggere og næringsliv, uavhengig av hvilken etat eller kommune som faktisk tilbyr dem.</p>
+            <p>Digdir har også utarbeidet en konkret modell for felles økosystem. Denne modellen illustrerer hvordan vi kan ivareta samhandling på juridisk, organisatorisk, semantisk og teknisk nivå. Konseptet hjelper forvaltningen med å bryte opp komplekse tjenester i håndterbare bolker og viser avhengighetene mellom ulike aktører og systemer.</p>
+            
+            <img src="images/capability-map.png" alt="Capability map som illustrerer hvordan nasjonal arkitektur knytter strategi, kapabiliteter, prioritering og gjennomføring sammen.">
+
+            <h2>Konseptuell skisse</h2>
+            <p>Diagrammet under illustrerer forholdet mellom aktørene, kapabilitetene i Nasjonal arkitektur, og hvordan dette understøtter strategiske mål for økt samhandlingsevne i et felles økosystem.</p>
+            <pre><code>
+flowchart TD
+    %% Sektorer og aktører
+    Sektorer["Ulike sektorer<br>(Stat, Kommune, Helse, Næringsliv)"]
+
+    %% Nasjonal arkitektur rammeverk
+    subgraph NA [Nasjonal arkitektur]
+        subgraph Konkrete_felleslosninger [Eksempler på fellesløsninger]
+            subgraph Digdir_losninger [Digdir]
+                IDporten["ID-porten"]
+                Maskinporten
+                eSignering
+                FDK["Felles datakatalog"]
+                Altinn["Altinn (Tjenesteutvikling og portal)"]
+                DPV["Digital postkasse"]
+                eFormidling
+                eInnsyn
+                KRR["Kontakt- og reservasjonsregisteret"]
+                NorgeNo["Norge.no"]
+            end
+            subgraph KS_losninger [KS Digital]
+                SvarUt["Fiks SvarUt"]
+                MinKommune["KS Min kommune"]
+                FiksRegister["Fiks register"]
+                Digisos["Fiks digisos"]
+            end
+        end
+
+        Ressurser["Ressurser<br>(Fellesløsninger, data, standarder)"]
+        Kapabiliteter["Kapabiliteter<br>(Evnen til å samhandle og dele)"]
+
+        Konkrete_felleslosninger -->|Utgjør| Ressurser
+        Ressurser -.->|Realiserer| Kapabiliteter
+    end
+
+    %% Målbilde
+    subgraph Økosystem [Felles digitalt økosystem]
+        Strategi["Strategiske mål"]
+        Samhandling["Økt samhandlingsevne"]
+
+        Strategi -.->|Fører til| Samhandling
+    end
+
+    %% Relasjoner
+    Sektorer <-->|Benytter og bidrar til| Kapabiliteter
+    Kapabiliteter ===>|Understøtter| Strategi
+            </code></pre>
+        </section>
+
+        <section id="arkitekturstyring">
+            <h1>Arkitekturstyring i samhandlingstjenester</h1>
+            <p>Dette dokumentet beskriver anbefalte prinsipper og fremgangsmåter for arkitekturstyring i utviklingen av digitale samhandlingstjenester i offentlig sektor. Målet er å sikre at løsninger utvikles på en enhetlig, sikker og gjenbrukbar måte, i tråd med Nasjonal arkitektur.</p>
+            
+            <h2>Prinsipper for arkitekturstyring</h2>
+            <p>Her kan du liste opp overordnede prinsipper som skal ligge til grunn for arkitekturarbeidet.</p>
+            <ul>
+                <li><strong>Prinsipp 1:</strong> Beskrivelse...</li>
+                <li><strong>Prinsipp 2:</strong> Beskrivelse...</li>
+                <li><strong>Prinsipp 3:</strong> Beskrivelse...</li>
+            </ul>
+
+            <h2>Roller og ansvar</h2>
+            <p>En oversikt over sentrale roller og deres ansvar i arkitekturprosessen.</p>
+            <ul>
+                <li><strong>Tjenesteeier:</strong> Beskrivelse...</li>
+                <li><strong>Løsningsarkitekt:</strong> Beskrivelse...</li>
+                <li><strong>Sikkerhetsarkitekt:</strong> Beskrivelse...</li>
+            </ul>
+
+            <h2>Prosess og livssyklus</h2>
+            <p>Beskrivelse av hvordan arkitekturstyring integreres i de ulike fasene av en tjenestes livssyklus, fra konsept til avhending.</p>
+            <h3>Konseptfase</h3>
+            <p>...</p>
+            <h3>Utviklingsfase</h3>
+            <p>...</p>
+            <h3>Forvaltningsfase</h3>
+            <p>...</p>
+        </section>
+
+        <section id="informasjonsforvaltning">
+            <h1>Informasjonsforvaltning</h1>
+            
+            <h2>Hva er informasjonsforvaltning?</h2>
+            <p>Ifølge Digitaliseringsdirektoratet (Digdir) er informasjonsforvaltning definert som: <br>
+            <em>"Aktiviteter, verktøy og andre tiltak for å sikre best mulig kvalitet, utnytting og sikring av informasjon i en virksomhet. Organisering av informasjonen skal være systematisk og henge sammen med virksomheten sine arbeidsprosesser."</em></p>
+            <p>God informasjonsforvaltning er en forutsetning for å realisere "kun én gang"-prinsippet og skape sammenhengende tjenester. Det handler om å gå fra at data er innelåst i siloer, til at informasjon behandles som en felles ressurs som kan deles og gjenbrukes på tvers av forvaltningen.</p>
+
+            <h2>Digdirs prinsipper for informasjonsmodeller</h2>
+            <p>For å sikre at offentlige virksomheter bygger informasjonsmodeller som fungerer i et felles økosystem, har Digdir definert ni grunnleggende designprinsipper:</p>
+            <ol>
+                <li><strong>Sammenheng:</strong> Modellene skal være sammenhengende på tvers av ulike faser i modelleringsprosessen og på tvers av abstraksjonsnivåer.</li>
+                <li><strong>Brukerperspektiv:</strong> Modellene skal være så enkle som mulig for å dekke behovet, og lette å forstå for de aktuelle målgruppene.</li>
+                <li><strong>Terminologi:</strong> Modellene skal i størst mulig grad baseres på eksisterende termer og definisjoner (f.eks. fra Felles datakatalog).</li>
+                <li><strong>Dokumentasjon:</strong> Modellene skal ha god dokumentasjon tilpasset målgruppene.</li>
+                <li><strong>Tilgjengelighet:</strong> Modellene skal gjøres tilgjengelige på standardiserte formater.</li>
+                <li><strong>Gjenbruk og utveksling av data:</strong> Informasjonsmodellene skal understøtte deling, gjenbruk og utveksling av data i og mellom virksomheter.</li>
+                <li><strong>Modularitet:</strong> Modellene skal deles opp i gjenbrukbare moduler.</li>
+                <li><strong>Stabilitet og utvidbarhet:</strong> Modellene skal være stabile over tid, men kunne utvides ved behov gjennom et definert forvaltningsregime.</li>
+                <li><strong>Verktøyuavhengighet:</strong> Modellene skal utformes uavhengig av spesifikke IT-verktøy.</li>
+            </ol>
+            <p>Gjennom å følge disse prinsippene legger vi til rette for økt samhandlingsevne, bedre datakvalitet og mer effektive offentlige tjenester.</p>
+        </section>
+        
+        <section id="kapabilitetsmapping">
+            <h1>Nasjonal Arkitektur: Kapabilitetsmapping utkast</h1>
+            <p><strong>Enkel oversikt med eksempler</strong><br><em>Mapping mellom nasjonale kapabiliteter og fellesressurser</em></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kapabilitet & Definisjon</th>
+                        <th>Produkter & Ressurser</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Strategisk styring</strong> – <em>Å sette retning for nasjonal arkitektur og realisere strategiske mål.</em></td><td>Digitaliseringsrådet, SKATE, Medfinansieringsordningen, Stimulab, Digitaliseringsrundskrivet</td></tr>
+                    <tr><td><strong>Juridisk samhandling</strong> – <em>Å forvalte et helhetlig juridisk rammeverk for sikker digital samhandling.</em></td><td>Ressurssenter for deling av data, Veileder for digitaliseringsvennlig regelverk, Oversikt over EU-regelverk</td></tr>
+                    <tr><td><strong>Informasjonsforvaltning</strong> – <em>Felles rammeverk så virksomheter kan utveksle data og beskrivelser.</em></td><td>data.norge.no (fellesløsning), Rammeverk for informasjonsforvaltning, Orden i eget hus, Nasjonal verktøykasse for deling</td></tr>
+                    <tr><td><strong>Informasjonssikkerhet</strong> – <em>Tilstrekkelig sikkerhet i tjenester i felles økosystem.</em></td><td>sikkert.no, Maskinporten (fellesløsning), NSM Grunnprinsipper, Stifinneren (internkontroll)</td></tr>
+                    <tr><td><strong>Tillit</strong> – <em>Autentisering og autorisasjon på tvers av tjenestekjeder.</em></td><td>ID-porten (fellesløsning), Maskinporten (fellesløsning), eSignering (fellesløsning), Altinn autorisasjon (fellesløsning)</td></tr>
+                    <tr><td><strong>Datautveksling</strong> – <em>Sikker og standardisert utveksling av data mellom aktører.</em></td><td>eFormidling (fellesløsning), FIKS-plattformen (fellesløsning), Altinn formidling (fellesløsning), Altinn events (fellesløsning)</td></tr>
+                    <tr><td><strong>Tjenesteutvikling</strong> – <em>Å utvikle sammenhengende digitale tjenester.</em></td><td>Altinn Studio / 3.0 (fellesløsning), Den triple diamanten, Tjenestedesign-metodikk, Strategisk fremsyn</td></tr>
+                    <tr><td><strong>Sluttbrukertjenester</strong> – <em>Sammenhengende brukeropplevelse gjennom standardiserte tjenester.</em></td><td>Norge.no (fellesløsning), Altinn.no (fellesløsning), eInnsyn (fellesløsning), Minkommune (fellesløsning)</td></tr>
+                    <tr><td><strong>Samarbeid</strong> – <em>Samhandling på tvers av offentlig og privat forvaltning.</em></td><td>SKATE-samarbeidet, Fagarenaer og nettverk, Internasjonalt samarbeid</td></tr>
+                    <tr><td><strong>Veiledning</strong> – <em>At veiledninger utarbeides og benyttes i felles økosystem.</em></td><td>Veiledning for sammenh. tjenester, Beste praksis hendelsesarkitektur, Nasjonal verktøykasse for deling</td></tr>
+                    <tr><td><strong>Datakilder</strong> – <em>Tilgjengeliggjøre data som nasjonal fellesressurs.</em></td><td>Folkeregisteret (fellesløsning), Enhetsregisteret (fellesløsning), Matrikkelen (fellesløsning), FIKS Register (fellesløsning)</td></tr>
+                    <tr><td><strong>Datadrevet</strong> – <em>Systematisk bruk av data for innsikt og bedre tjenester.</em></td><td>data.altinn.no (fellesløsning), Analyse av livshendelser, Strategisk fremsyn basert på data</td></tr>
+                    <tr><td><strong>Standardisering</strong> – <em>Identifisere og fremme standarder for interoperabilitet.</em></td><td>Referansekatalogen for IT-standarder, Arkitektur- og standardiseringsrådet, Rammeverk for digital samhandling</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="adr-mal">
+            <h1>[ADR-0000] Tittel på arkitekturbeslutningen</h1>
+            <p><strong>Dato:</strong> YYYY-MM-DD<br>
+            <strong>Status:</strong> [Foreslått | Akseptert | Avvist | Forkastet]</p>
+
+            <h2>Kontekst</h2>
+            <p>Beskriv problemet vi prøver å løse, og den relevante bakgrunnen for hvorfor vi må ta en beslutning. Hva er begrensningene, kravene eller forutsetningene? Hold det objektivt og faktabasert.</p>
+
+            <h2>Beslutning</h2>
+            <p>Hva er selve beslutningen vi har tatt (eller foreslår å ta)? Skriv det klart og tydelig. Gjerne inkluder hvilke andre alternativer som ble vurdert og hvorfor de ble valgt bort.</p>
+
+            <h2>Konsekvenser</h2>
+            <p>Hvilke konsekvenser får denne beslutningen for systemet, teamet eller prosjektet?<br>
+            Dette kan inkludere:</p>
+            <ul>
+                <li><strong>Positive:</strong> Hva blir bedre, enklere eller raskere? (F.eks. støtter "kun én gang"-prinsippet, gjenbruk av nasjonal felleskomponent).</li>
+                <li><strong>Negative:</strong> Hva blir vanskeligere, dyrere eller hvilken teknisk gjeld introduserer vi? (F.eks. innfører en ny avhengighet, krever spesiell kompetanse).</li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
