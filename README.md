@@ -3,6 +3,7 @@
 - Jeg jobber med Nasjonal arkitektur for felles økosystem og jobber i Digdir.
 - Her kommer det mere etterhvert
 [Se test.md](test.md)
+[Mal for arkitekturbeslutninger (ADR)](docs/0000-mal-for-adr.md)
 
 ## Hva er Nasjonal arkitektur?
 I en norsk kontekst er nasjonal arkitektur et overordnet rammeverk for hvordan offentlig sektor – i samspill med privat sektor – bygger og setter sammen digitale løsninger. Rammeverket forvaltes av Digitaliseringsdirektoratet (Digdir).
